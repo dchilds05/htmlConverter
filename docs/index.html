@@ -70,7 +70,7 @@
                         s = s.slice(0,i) + s.slice(i+3);
                     }
 
-                    if(!inSecondBlock && i < s.length-2 && s[i] == "\n" && s[i+1] == "\n"){
+                    if(!inSecondBlock && i < s.length-2 && s[i] == "\n"){
                         s = s.slice(0,i+1) + "<br>" + s.slice(i+1);
                         inSecondBlock = true;
                     }
