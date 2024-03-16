@@ -71,7 +71,7 @@
                     }
 
                     if(!inSecondBlock && i < s.length-7 && s[i] == "P" && s[i+1] == "M" && s[i+2] == " " && s[i+3] == "H" && s[i+4] == "O" && s[i+5] == "U" && s[i+6] == "R"){
-                        s = s.slice(0,i-1) + "<br>" + "\n" + s.slice(i+1);
+                        s = s.slice(0,i-1) + "<br>" + "\n" + s.slice(i-1);
                         i+=8;
                         inSecondBlock = true;
                     }
