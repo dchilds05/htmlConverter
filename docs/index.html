@@ -76,7 +76,7 @@
                     }
 
                     if(inSecondBlock && i < s.length-7 && s[i] == "<" && s[i+1] == "b" && s[i+2] == "r" && s[i+3] == ">" && s[i+4] == "\n" && s[i+5] == "\n"){
-                        s = s.slice(0,i) + "\n</b></p>" + s.slice(i+4);
+                        s = s.slice(0,i) + "</b></p>" + s.slice(i+4);
                         doneWithParEdits = true;
                     }
                 }
