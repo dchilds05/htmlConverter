@@ -126,7 +126,7 @@
             s = s.replaceAll("<p></p>","");
 
             //Add H5 tags
-            s = s.replaceAll("\n\n\n<p>", '\n\n\n<h5>');
+            s = s.replaceAll("\n\n<p>", '\n\n<h5>');
             s = s.replaceAll("<h5><h4>","<h4>");
             s = addH5EndTag(s);
 
