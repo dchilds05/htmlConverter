@@ -136,6 +136,7 @@
             s = s.replaceAll("</h4></p>","</h4>");
             s = s.replaceAll("</h5></p>","</h5>");
             s = s.replaceAll("<p><br><br></p>","<br><br>");
+            s = s.replaceAll("</h5>\n\n<h5>","</h5><br>\n\n<h5>");
 
             //Add line breaks
             s = s.replaceAll("<p>Unable to load the shape</p>","\n\n<br><hr><br>\n\n");
