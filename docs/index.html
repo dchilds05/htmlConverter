@@ -44,7 +44,6 @@
             let inSecondBlock = false;
             let doneWithParEdits = false;
             for(let i = 0; i < s.length; i++){
-                console.log("i = ", i);
                 if(!inDriveTime && i < s.length-27 && s[i] == "D" && s[i+1] == "R" && s[i+2] == "I" && s[i+3] == "V" && 
                 s[i+4] == "E" && s[i+5] == "T" && s[i+6] == "I" && s[i+7] == "M" && 
                 s[i+8] == "E" && s[i+9] == " " && s[i+10] == "U" && s[i+11] == "N" && 
@@ -88,6 +87,42 @@
                     break;
                 }
             }
+            return s;
+        }
+
+        function compSampleHourFormatter(s){
+            let incompSampleHour = false;
+            let inQuote = false;
+            for(let i = 0; i < s.length; i++){
+                if(!inDriveTime && i < s.length-27 && s[i] === "C" && s[i+1] === "O" && s[i+2] === "M" && s[i+3] === "P" && 
+                s[i+4] === "R" && s[i+5] === "E" && s[i+6] === "H" && s[i+7] === "E" && 
+                s[i+8] === "N" && s[i+9] === "S" && s[i+10] === "I" && s[i+11] === "V" && 
+                s[i+12] === "E" && s[i+13] === " " && s[i+14] === "S" && s[i+15] === "A" && 
+                s[i+16] === "M" && s[i+17] === "P" && s[i+18] === "L" && s[i+19] === "E" && 
+                s[i+20] === " " && s[i+21] === "H" && s[i+22] === "O" && s[i+23] === "U" && 
+                s[i+24] === "R"){
+                    incompSampleHour = true;
+                }
+
+                if(!incompSampleHour){
+                    continue;
+                }
+
+                if(s[i] === "\“"){
+                    inQuote = true;
+                }
+                else if(s[i] === "\”"){
+                    inQuote = false;
+                }
+
+                if(inQuote && s[i] === "<" && s[i+1] === "b" && s[i+2] === ">" && s[i+3] === "("){
+                    s = s.slice(0,i) + s.slice(i+3);
+                }
+
+                if(inQuote && s[i] === ")" && s[i+1] === "<" && s[i+2] === "/" && s[i+3] === "b" && s[i+4] === ">"){
+                    s = s.slice(0,i+1) + s.slice(i+5);
+                }
+                
             return s;
         }
 
@@ -149,6 +184,9 @@
 
             //Drivetime unit count sample
             s = driveTimeFormatter(s);
+
+            //Comprehensive Sample Hour
+            s = compSampleHourFormatter(s);
 
             // Return response
             message.innerHTML = "<xmp>" + s + "</xmp>";
