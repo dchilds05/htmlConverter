@@ -11,10 +11,10 @@
         function addH5EndTag(s){
             let inH5Tag = false;
             for(let i = 0; i < s.length; i++){
-                if(i < s.length-4 && s[i] == "<" && s[i+1] == "h" && s[i+2] == "5" && s[i+3] == ">"){
+                if(i < s.length-4 && s[i] === "<" && s[i+1] === "h" && s[i+2] === "5" && s[i+3] === ">"){
                     inH5Tag = true;
                 }
-                if(inH5Tag && i < s.length-4 && s[i] == "<" && s[i+1] == "/" && s[i+2] == "p" && s[i+3] == ">"){
+                if(inH5Tag && i < s.length-4 && s[i] === "<" && s[i+1] === "/" && s[i+2] === "p" && s[i+3] === ">"){
                     s = s.slice(0,i) + "</h5>" + s.slice(i+4);
                     inH5Tag = false;
                 }
@@ -25,11 +25,11 @@
         function addSpotEndTag(s){
             let needSpotTag = false;
             for(let i = 0; i < s.length; i++){
-                if(i < s.length-5 && s[i] == "<" && s[i+1] == "b" && s[i+2] == ">" && s[i+3] == "*" && s[i+4] == " "){
+                if(i < s.length-5 && s[i] === "<" && s[i+1] === "b" && s[i+2] === ">" && s[i+3] === "*" && s[i+4] === " "){
                     //console.log("entering the h5 tag");
                     needSpotTag = true;
                 }
-                if(needSpotTag && i > 5 && s[i] == "T" && s[i-1] == "O" && s[i-2] == "P" && s[i-3] == "S" && s[i-4] == " "){
+                if(needSpotTag && i > 5 && s[i] === "T" && s[i-1] === "O" && s[i-2] === "P" && s[i-3] === "S" && s[i-4] === " "){
                     //console.log("adding closing tag");
                     s = s.slice(0,i+1) + "</b>" + s.slice(i+1);
                     needSpotTag = false;
@@ -44,44 +44,44 @@
             let inSecondBlock = false;
             let doneWithParEdits = false;
             for(let i = 0; i < s.length; i++){
-                if(!inDriveTime && i < s.length-27 && s[i] == "D" && s[i+1] == "R" && s[i+2] == "I" && s[i+3] == "V" && 
-                s[i+4] == "E" && s[i+5] == "T" && s[i+6] == "I" && s[i+7] == "M" && 
-                s[i+8] == "E" && s[i+9] == " " && s[i+10] == "U" && s[i+11] == "N" && 
-                s[i+12] == "I" && s[i+13] == "T" && s[i+14] == " " && s[i+15] == "C" && 
-                s[i+16] == "O" && s[i+17] == "U" && s[i+18] == "N" && s[i+19] == "T" && 
-                s[i+20] == " " && s[i+21] == "S" && s[i+22] == "A" && s[i+23] == "M" && 
-                s[i+24] == "P" && s[i+25] == "L" && s[i+26] == "E"){
+                if(!inDriveTime && i < s.length-27 && s[i] === "D" && s[i+1] === "R" && s[i+2] === "I" && s[i+3] === "V" && 
+                s[i+4] === "E" && s[i+5] === "T" && s[i+6] === "I" && s[i+7] === "M" && 
+                s[i+8] === "E" && s[i+9] === " " && s[i+10] === "U" && s[i+11] === "N" && 
+                s[i+12] === "I" && s[i+13] === "T" && s[i+14] === " " && s[i+15] === "C" && 
+                s[i+16] === "O" && s[i+17] === "U" && s[i+18] === "N" && s[i+19] === "T" && 
+                s[i+20] === " " && s[i+21] === "S" && s[i+22] === "A" && s[i+23] === "M" && 
+                s[i+24] === "P" && s[i+25] === "L" && s[i+26] === "E"){
                     inDriveTime = true;
                 }
 
-                if(inDriveTime && !inParagraph && i < s.length-3 && s[i] == "<" && s[i+1] == "p" && s[i+2] == ">"){
+                if(inDriveTime && !inParagraph && i < s.length-3 && s[i] === "<" && s[i+1] === "p" && s[i+2] === ">"){
                     inParagraph = true;
                     s = s.slice(0,i+3) + "<b>" + s.slice(i+3);
                     i += 4;
                 }
 
                 if(inDriveTime && inParagraph){
-                    if(!doneWithParEdits && i < s.length-4 && s[i] == "<" && s[i+1] == "/" && s[i+2] == "p" && s[i+3] == ">"){
+                    if(!doneWithParEdits && i < s.length-4 && s[i] === "<" && s[i+1] === "/" && s[i+2] === "p" && s[i+3] === ">"){
                         s = s.slice(0,i) + "<br>" + s.slice(i+4);
                     }
 
-                    if(!doneWithParEdits && i < s.length-3 && s[i] == "<" && s[i+1] == "p" && s[i+2] == ">"){
+                    if(!doneWithParEdits && i < s.length-3 && s[i] === "<" && s[i+1] === "p" && s[i+2] === ">"){
                         s = s.slice(0,i) + s.slice(i+3);
                     }
 
-                    if(!inSecondBlock && i < s.length-7 && s[i] == "P" && s[i+1] == "M" && s[i+2] == " " && s[i+3] == "H" && s[i+4] == "O" && s[i+5] == "U" && s[i+6] == "R"){
+                    if(!inSecondBlock && i < s.length-7 && s[i] === "P" && s[i+1] === "M" && s[i+2] === " " && s[i+3] === "H" && s[i+4] === "O" && s[i+5] === "U" && s[i+6] === "R"){
                         s = s.slice(0,i-1) + "<br>" + "\n" + s.slice(i-1);
                         i+=8;
                         inSecondBlock = true;
                     }
 
-                    if(inSecondBlock && i < s.length-7 && s[i] == "<" && s[i+1] == "b" && s[i+2] == "r" && s[i+3] == ">" && s[i+4] == "\n" && s[i+5] == "\n"){
+                    if(inSecondBlock && i < s.length-7 && s[i] === "<" && s[i+1] === "b" && s[i+2] === "r" && s[i+3] === ">" && s[i+4] === "\n" && s[i+5] === "\n"){
                         s = s.slice(0,i) + "</b></p>" + s.slice(i+4);
                         doneWithParEdits = true;
                     }
                 }
 
-                if(inDriveTime && inParagraph && i < s.length-5 && s[i] == "<" && s[i+1] == "h" && s[i+2] == "r" && s[i+3] == ">"){
+                if(inDriveTime && inParagraph && i < s.length-5 && s[i] === "<" && s[i+1] === "h" && s[i+2] === "r" && s[i+3] === ">"){
                     inDriveTime = false;
                     inParagraph = false;
                     break;
