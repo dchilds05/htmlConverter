@@ -91,27 +91,27 @@
         }
 
         function compSampleHourFormatter(s){
-            let incompSampleHour = false;
+            let inCompSampleHour = false;
             let inQuote = false;
             for(let i = 0; i < s.length; i++){
-                if(!incompSampleHour && i < s.length-27 && s[i] === "C" && s[i+1] === "O" && s[i+2] === "M" && s[i+3] === "P" && 
+                if(!inCompSampleHour && i < s.length-27 && s[i] === "C" && s[i+1] === "O" && s[i+2] === "M" && s[i+3] === "P" && 
                 s[i+4] === "R" && s[i+5] === "E" && s[i+6] === "H" && s[i+7] === "E" && 
                 s[i+8] === "N" && s[i+9] === "S" && s[i+10] === "I" && s[i+11] === "V" && 
                 s[i+12] === "E" && s[i+13] === " " && s[i+14] === "S" && s[i+15] === "A" && 
                 s[i+16] === "M" && s[i+17] === "P" && s[i+18] === "L" && s[i+19] === "E" && 
                 s[i+20] === " " && s[i+21] === "H" && s[i+22] === "O" && s[i+23] === "U" && 
                 s[i+24] === "R"){
-                    incompSampleHour = true;
+                    inCompSampleHour = true;
                 }
 
-                if(!incompSampleHour){
+                if(!inCompSampleHour){
                     continue;
                 }
 
-                if(s[i] === "\“"){
+                if(s[i] === '“'){
                     inQuote = true;
                 }
-                else if(s[i] === "\”"){
+                else if(s[i] === '”'){
                     inQuote = false;
                 }
 
