@@ -178,15 +178,15 @@
             s = s.replaceAll("<p>Shape</p>","\n\n<br><hr><br>\n\n");
             s = s.replaceAll("<p>________________________________________</p>","\n\n<br><hr><br>\n\n");
 
+            //Comprehensive Sample Hour
+            s = compSampleHourFormatter(s);
+
             //Quotes and apostrophes
             s = s.replace(/[\u2018\u2019]/g, "'");
             s = s.replace(/[\u201C\u201D]/g, '"');
 
             //Drivetime unit count sample
             s = driveTimeFormatter(s);
-
-            //Comprehensive Sample Hour
-            s = compSampleHourFormatter(s);
 
             // Return response
             message.innerHTML = "<xmp>" + s + "</xmp>";
