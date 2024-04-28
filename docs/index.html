@@ -94,7 +94,7 @@
             let incompSampleHour = false;
             let inQuote = false;
             for(let i = 0; i < s.length; i++){
-                if(!inDriveTime && i < s.length-27 && s[i] === "C" && s[i+1] === "O" && s[i+2] === "M" && s[i+3] === "P" && 
+                if(!incompSampleHour && i < s.length-27 && s[i] === "C" && s[i+1] === "O" && s[i+2] === "M" && s[i+3] === "P" && 
                 s[i+4] === "R" && s[i+5] === "E" && s[i+6] === "H" && s[i+7] === "E" && 
                 s[i+8] === "N" && s[i+9] === "S" && s[i+10] === "I" && s[i+11] === "V" && 
                 s[i+12] === "E" && s[i+13] === " " && s[i+14] === "S" && s[i+15] === "A" && 
