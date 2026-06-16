@@ -134,22 +134,22 @@
             //Add H4 tags
             const positioningString = '<hr ID="2"> <br> <h4>POSITIONING  <span class="top"><a href="#TOP">(Top)</a></span></h4>';
             let positionHrEqualsSigns = '';
-            for (let i = 0; i < positioningString.length; i++) positionHrEqualsSigns += '=';
+            for (let i = 0; i < positioningString.length - 9; i++) positionHrEqualsSigns += '=';
             const promotionsString = '<hr ID="3"> <br> <h4>PROMOTIONS  <span class="top"><a href="#TOP">(Top)</a></span></h4>';
             let promotionHrEqualsSigns = '';
-            for (let i = 0; i < promotionsString.length; i++) promotionHrEqualsSigns += '=';
+            for (let i = 0; i < promotionsString.length - 9; i++) promotionHrEqualsSigns += '=';
             const featuresString = '<hr ID="4"> <br> <h4>FEATURES  <span class="top"><a href="#TOP">(Top)</a></span></h4>';
             let featuresHrEqualsSigns = '';
-            for (let i = 0; i < featuresString.length; i++) featuresHrEqualsSigns += '=';
+            for (let i = 0; i < featuresString.length - 9; i++) featuresHrEqualsSigns += '=';
             const morningShowString = '<hr ID="5"> <br> <h4>MORNING SHOW  <span class="top"><a href="#TOP">(Top)</a></span></h4>';
             let morningShowHrEqualsSigns = '';
-            for (let i = 0; i < morningShowString.length; i++) morningShowHrEqualsSigns += '=';
+            for (let i = 0; i < morningShowString.length - 9; i++) morningShowHrEqualsSigns += '=';
             const drivetimeString = '<hr ID="6"> <br> <h4>DRIVETIME UNIT COUNT SAMPLE  <span class="top"><a href="#TOP">(Top)</a></span></h4>';
             let drivetimeHrEqualsSigns = '';
-            for (let i = 0; i < drivetimeString.length; i++) drivetimeHrEqualsSigns += '=';
+            for (let i = 0; i < drivetimeString.length - 9; i++) drivetimeHrEqualsSigns += '=';
             const comprehensiveString = '<hr ID="7"> <br> <h4>COMPREHENSIVE SAMPLE HOUR  <span class="top"><a href="#TOP">(Top)</a></span></h4>';
             let comprehensiveHrEqualsSigns = '';
-            for (let i = 0; i < comprehensiveString.length; i++) comprehensiveHrEqualsSigns += '=';
+            for (let i = 0; i < comprehensiveString.length - 9; i++) comprehensiveHrEqualsSigns += '=';
             const openingHrBracket = '<!-- ';
             const closingHrBracket = ' -->';
 
@@ -198,9 +198,9 @@
             s = s.replaceAll(" --></p>"," -->");
 
             //Add line breaks
-            s = s.replaceAll("<p>Unable to load the shape</p>","\n\n\n\n");
-            s = s.replaceAll("<p>Shape</p>","\n\n\n\n");
-            s = s.replaceAll("<p>________________________________________</p>","\n\n\n\n");
+            s = s.replaceAll("<p>Unable to load the shape</p>","");
+            s = s.replaceAll("<p>Shape</p>","");
+            s = s.replaceAll("<p>________________________________________</p>","");
 
             //Comprehensive Sample Hour
             s = compSampleHourFormatter(s);
