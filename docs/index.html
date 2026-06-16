@@ -132,12 +132,33 @@
             let s = userInput.value;
 
             //Add H4 tags
-            s = s.replace("POSITIONING (Top)","<h4>POSITIONING  <span style='font-size:8.5pt'><a href=\"#TOP\">(Top)</a></span></h4>\n<br><br>");
-            s = s.replace("PROMOTIONS (Top)","<h4>PROMOTIONS  <span style='font-size:8.5pt'><a href=\"#TOP\">(Top)</a></span></h4>\n<br><br>");
-            s = s.replace("FEATURES (Top)","<h4>FEATURES  <span style='font-size:8.5pt'><a href=\"#TOP\">(Top)</a></span></h4>\n<br><br>");
-            s = s.replace("MORNING SHOW (Top)","<h4>MORNING SHOW  <span style='font-size:8.5pt'><a href=\"#TOP\">(Top)</a></span></h4>\n<br><br>");
-            s = s.replace("DRIVETIME UNIT COUNT SAMPLE (Top)","<h4>DRIVETIME UNIT COUNT SAMPLE  <span style='font-size:8.5pt'><a href=\"#TOP\">(Top)</a></span></h4>\n<br><br>");
-            s = s.replace("COMPREHENSIVE SAMPLE HOUR (Top)","<h4>COMPREHENSIVE SAMPLE HOUR  <span style='font-size:8.5pt'><a href=\"#TOP\">(Top)</a></span></h4>\n<br><br>");
+            const positioningString = '<hr ID="2"> <br> <h4>POSITIONING  <span class="top"><a href="#TOP">(Top)</a></span></h4>';
+            let positionHrEqualsSigns = 0;
+            for (let i = 0; i < positioningString.length; i++) positionHrEqualsSigns += '=';
+            const promotionsString = '<hr ID="3"> <br> <h4>PROMOTIONS  <span class="top"><a href="#TOP">(Top)</a></span></h4>';
+            let promotionHrEqualsSigns = 0;
+            for (let i = 0; i < promotionsString.length; i++) promotionHrEqualsSigns += '=';
+            const featuresString = '<hr ID="4"> <br> <h4>FEATURES  <span class="top"><a href="#TOP">(Top)</a></span></h4>';
+            let featuresHrEqualsSigns = 0;
+            for (let i = 0; i < featuresString.length; i++) featuresHrEqualsSigns += '=';
+            const morningShowString = '<hr ID="5"> <br> <h4>MORNING SHOW  <span class="top"><a href="#TOP">(Top)</a></span></h4>';
+            let morningShowHrEqualsSigns = 0;
+            for (let i = 0; i < morningShowString.length; i++) morningShowHrEqualsSigns += '=';
+            const drivetimeString = '<hr ID="6"> <br> <h4>DRIVETIME UNIT COUNT SAMPLE  <span class="top"><a href="#TOP">(Top)</a></span></h4>';
+            let drivetimeHrEqualsSigns = 0;
+            for (let i = 0; i < drivetimeString.length; i++) drivetimeHrEqualsSigns += '=';
+            const comprehensiveString = '<hr ID="7"> <br> <h4>COMPREHENSIVE SAMPLE HOUR  <span class="top"><a href="#TOP">(Top)</a></span></h4>';
+            let comprehensiveHrEqualsSigns = 0;
+            for (let i = 0; i < comprehensiveString.length; i++) comprehensiveHrEqualsSigns += '=';
+            const openingHrBracket = '<!-- ';
+            const closingHrBracket = ' -->';
+
+            s = s.replace("POSITIONING (Top)",openingHrBracket + positionHrEqualsSigns + closingHrBracket + positioningString + openingHrBracket + positionHrEqualsSigns + closingHrBracket);
+            s = s.replace("PROMOTIONS (Top)",openingHrBracket + promotionHrEqualsSigns + closingHrBracket + promotionsString + openingHrBracket + promotionHrEqualsSigns + closingHrBracket);
+            s = s.replace("FEATURES (Top)",openingHrBracket + featuresHrEqualsSigns + closingHrBracket + featuresString + openingHrBracket + featuresHrEqualsSigns + closingHrBracket);
+            s = s.replace("MORNING SHOW (Top)",openingHrBracket + morningShowHrEqualsSigns + closingHrBracket + morningShowString + openingHrBracket + morningShowHrEqualsSigns + closingHrBracket);
+            s = s.replace("DRIVETIME UNIT COUNT SAMPLE (Top)",openingHrBracket + drivetimeHrEqualsSigns + closingHrBracket + drivetimeString + openingHrBracket + drivetimeHrEqualsSigns + closingHrBracket);
+            s = s.replace("COMPREHENSIVE SAMPLE HOUR (Top)",openingHrBracket + comprehensiveHrEqualsSigns + closingHrBracket + comprehensiveString + openingHrBracket + comprehensiveHrEqualsSigns + closingHrBracket);
             
             // Add bold tags
             s = s.replaceAll("[","<b>[");
@@ -146,6 +167,7 @@
             s = s.replaceAll("]","]</b>");
             s = s.replaceAll(")",")</b>");
             s = addSpotEndTag(s);
+            s = s.replaceAll("<br>(Top)</br>","(Top)");
 
             // Add paragraph tags
             s = s.replace(/^/gm, '<p>');
