@@ -133,7 +133,7 @@
 
             //Add H4 tags
             const positioningString = '<hr ID="2"> <br> <h4>POSITIONING  <span class="top"><a href="#TOP">(Top)</a></span></h4>';
-            let positionHrEqualsSigns = 0;
+            let positionHrEqualsSigns = '';
             for (let i = 0; i < positioningString.length; i++) positionHrEqualsSigns += '=';
             const promotionsString = '<hr ID="3"> <br> <h4>PROMOTIONS  <span class="top"><a href="#TOP">(Top)</a></span></h4>';
             let promotionHrEqualsSigns = 0;
@@ -167,7 +167,7 @@
             s = s.replaceAll("]","]</b>");
             s = s.replaceAll(")",")</b>");
             s = addSpotEndTag(s);
-            s = s.replaceAll("<br>(Top)</br>","(Top)");
+            s = s.replaceAll("<b>(Top)</b>","(Top)");
 
             // Add paragraph tags
             s = s.replace(/^/gm, '<p>');
@@ -194,6 +194,8 @@
             s = s.replaceAll("</h5></p>","</h5>");
             s = s.replaceAll("<p><br><br></p>","<br><br>");
             s = s.replaceAll("</h5>\n\n<h5>","</h5><br>\n\n<h5>");
+            s = s.replaceAll("<p><!-","<!-");
+            s = s.replaceAll(" --></p>"," -->");
 
             //Add line breaks
             s = s.replaceAll("<p>Unable to load the shape</p>","\n\n<br><hr><br>\n\n");
